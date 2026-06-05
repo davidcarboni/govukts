@@ -163,6 +163,35 @@ const generateIndexFile = (components: string[]): string => {
   return lines.join('\n')
 }
 
+const generateTemplatesFile = (): string => {
+  const distDir = path.join(GOVUK_ROOT, 'dist')
+  const entries: string[] = []
+
+  const walk = (dir: string): void => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const fullPath = path.join(dir, entry.name)
+      if (entry.isDirectory()) {
+        walk(fullPath)
+      } else if (entry.name.endsWith('.njk')) {
+        const key = path.relative(distDir, fullPath).replace(/\\/g, '/')
+        const value = fs.readFileSync(fullPath, 'utf-8')
+        entries.push(`  ${JSON.stringify(key)}: ${JSON.stringify(value)},`)
+      }
+    }
+  }
+
+  walk(distDir)
+
+  return [
+    '// GENERATED FILE – do not edit directly. Run: npm run generate',
+    '',
+    'export const govukTemplates: Record<string, string> = {',
+    ...entries,
+    '}',
+    '',
+  ].join('\n')
+}
+
 const run = (): void => {
   fs.mkdirSync(OUTPUT_DIR, { recursive: true })
 
@@ -176,12 +205,14 @@ const run = (): void => {
     )
   }
 
+  fs.writeFileSync(path.join(OUTPUT_DIR, 'govukTemplates.ts'), generateTemplatesFile())
+
   fs.writeFileSync(
     path.join(CURRENT_DIR, '../src/index.ts'),
     generateIndexFile(components)
   )
 
-  console.log(`Generated ${components.length} components`)
+  console.log(`Generated ${components.length} components + templates`)
 }
 
 run()

@@ -15,16 +15,15 @@
   ],
   "scripts": {
     "generate": "tsx scripts/generate.ts",
-    "build": "tsc",
+    "build": "npm run generate && tsx scripts/bundle.ts",
     "clean": "rm -rf dist src/generated src/index.ts"
-  },
-  "dependencies": {
-    "govuk-frontend": "^6.1.0",
-    "nunjucks": "^3.2.4"
   },
   "devDependencies": {
     "@types/nunjucks": "^3.2.6",
     "@types/node": "^22.0.0",
+    "esbuild": "^0.25.0",
+    "govuk-frontend": "^6.1.0",
+    "nunjucks": "^3.2.4",
     "tsx": "^4.19.2",
     "typescript": "^5.0.0"
   }
