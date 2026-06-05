@@ -1,25 +1,40 @@
-import { button } from './components/button'
+// GENERATED FILE – do not edit directly. Run: npm run generate
 
-// Standard submit button
-const submit = button({ text: 'Save and continue' })
+export type { GovukAttributes, GovukPluralisation } from './common.js'
 
-// Start button (renders with an arrow icon)
-const start = button({ text: 'Start now', isStartButton: true })
-
-// Link styled as a button
-const link = button({ text: 'Go somewhere', href: '/somewhere' })
-
-// Disabled button
-const disabled = button({ text: 'Not available', disabled: true })
-
-console.log('=== Submit ===')
-console.log(submit)
-
-console.log('\n=== Start button ===')
-console.log(start)
-
-console.log('\n=== Link button ===')
-console.log(link)
-
-console.log('\n=== Disabled ===')
-console.log(disabled)
+export * from './generated/accordion.js'
+export * from './generated/back-link.js'
+export * from './generated/breadcrumbs.js'
+export * from './generated/button.js'
+export * from './generated/character-count.js'
+export * from './generated/checkboxes.js'
+export * from './generated/cookie-banner.js'
+export * from './generated/date-input.js'
+export * from './generated/details.js'
+export * from './generated/error-message.js'
+export * from './generated/error-summary.js'
+export * from './generated/exit-this-page.js'
+export * from './generated/fieldset.js'
+export * from './generated/file-upload.js'
+export * from './generated/footer.js'
+export * from './generated/header.js'
+export * from './generated/hint.js'
+export * from './generated/input.js'
+export * from './generated/inset-text.js'
+export * from './generated/label.js'
+export * from './generated/notification-banner.js'
+export * from './generated/pagination.js'
+export * from './generated/panel.js'
+export * from './generated/password-input.js'
+export * from './generated/phase-banner.js'
+export * from './generated/radios.js'
+export * from './generated/select.js'
+export * from './generated/service-navigation.js'
+export * from './generated/skip-link.js'
+export * from './generated/summary-list.js'
+export * from './generated/table.js'
+export * from './generated/tabs.js'
+export * from './generated/tag.js'
+export * from './generated/task-list.js'
+export * from './generated/textarea.js'
+export * from './generated/warning-text.js'

@@ -1,9 +1,11 @@
-import * as nunjucks from 'nunjucks'
+import nunjucks from 'nunjucks'
 import { dirname, join } from 'path'
+import { fileURLToPath } from 'url'
 
-// Resolve govuk-frontend's dist folder so macros can be found via their
-// canonical import path: "govuk/components/<name>/macro.njk"
-const govukFrontendDist = join(dirname(require.resolve('govuk-frontend/package.json')), 'dist')
+const govukFrontendDist = join(
+  dirname(fileURLToPath(import.meta.resolve('govuk-frontend/package.json'))),
+  'dist'
+)
 
 const env = nunjucks.configure(govukFrontendDist, { autoescape: false })
 

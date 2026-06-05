@@ -1,1 +1,5 @@
+node_modules/
+dist/
+src/generated/
+src/index.ts
 package-lock.json
