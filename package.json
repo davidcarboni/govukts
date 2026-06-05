@@ -1,5 +1,5 @@
 {
-  "name": "govukts",
+  "name": "@carboni/govukts",
   "version": "0.1.0",
   "type": "module",
   "main": "dist/index.js",
@@ -13,10 +13,35 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/carboni/govukts"
+  },
+  "bugs": {
+    "url": "https://github.com/carboni/govukts/issues"
+  },
+  "homepage": "https://github.com/carboni/govukts",
+  "author": "David Carboni",
+  "description": "Types and rendering functions for GOV.UK frontend components",
+  "keywords": [
+    "govuk",
+    "frontend",
+    "components",
+    "templates",
+    "typescript"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "generate": "tsx scripts/generate.ts",
     "build": "npm run generate && tsx scripts/bundle.ts",
-    "clean": "rm -rf dist src/generated src/index.ts"
+    "clean": "rm -rf dist src/generated src/index.ts",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@types/nunjucks": "^3.2.6",
