@@ -13,6 +13,6 @@ npm run build
   import { govukButton, govukInput } from 'govukts'
   import type { GovukButton } from 'govukts'
 
-  const html = govukButton({ text: 'Continue' })
+  const button: GovukButton = { text: 'Continue' };
+  const html = govukButton(button)
 ```
-
