@@ -19,7 +19,7 @@ jobs:
           node-version: lts/*
           registry-url: https://registry.npmjs.org
 
-      - run: npm ci
+      - run: npm i
 
       - name: Publish
         run: npm publish --provenance
