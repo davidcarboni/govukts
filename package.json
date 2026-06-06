@@ -41,7 +41,8 @@
     "generate": "tsx scripts/generate.ts",
     "build": "npm run generate && tsx scripts/bundle.ts",
     "clean": "rm -rf dist src/generated src/index.ts",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "release": "bash scripts/release.sh"
   },
   "devDependencies": {
     "@types/nunjucks": "*",

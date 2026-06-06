@@ -1,12 +1,12 @@
 name: Publish
 
 on:
-  release:
-    types: [published]
+  push:
+    tags: ["v*"]
 
 permissions:
   contents: read
-  id-token: write  # Required for npm provenance attestation
+  id-token: write # Required for npm provenance and OIDC Trusted Publishers auth
 
 jobs:
   publish:
@@ -23,12 +23,3 @@ jobs:
 
       - name: Publish
         run: npm publish --provenance
-
-      - name: Version increment
-        run: |
-          # Push updated pakage.json version
-          # so that we're ready to work on the next version
-          npm version patch
-          git commit -am "Patch version" || true
-          git pull --rebase
-          git push
